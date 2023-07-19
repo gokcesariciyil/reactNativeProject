@@ -31,7 +31,6 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -42,19 +41,44 @@ type SectionProps = PropsWithChildren<{
 // }
 
 function App(): JSX.Element {
-  const [text, setText] = useState("")
+  const [text, setText] = useState("");
+  const handlePrompt = () => {
+    Alert.alert(
+      'Prompt',
+      '',
+      [
+        {
+          text: 'OK',
+          onPress: () => {
+            // Handle OK button press
+          },
+        },
+        {
+          text: 'Cancel',
+          onPress: () => {
+            // Handle Cancel button press
+          },
+          style: 'cancel',
+        },
+      ],
+      {
+        cancelable: false,
+      }
+    );
+  };
   return (
     <SafeAreaView style={styles.background}>
-      <TextInput maxLength={20}
-        style={{ width: 200, height: 50, borderWidth: 1 }}
-        placeholder='Type something'
-        value={text}
-        onChangeText={setText}
-        secureTextEntry={true}
-      />
-      <Text>{text}</Text>
-      <Button title="Prompt" onPress={() => Alert.prompt("Hello " + text, "How are you?", (val) => console.log(val))} />
-    </SafeAreaView>
+    <TextInput
+      maxLength={20}
+      style={{ width: 200, height: 50, borderWidth: 1 }}
+      placeholder="Type something"
+      value={text}
+      onChangeText={setText}
+      secureTextEntry={true}
+    />
+    <Text>{text}</Text>
+    <Button title="Prompt" onPress={handlePrompt} />
+  </SafeAreaView>
 
   );
 }
@@ -77,7 +101,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   background: {
-    backgroundColor: 'pink',
+    backgroundColor: 'transparent',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
