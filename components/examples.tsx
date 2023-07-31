@@ -1,5 +1,22 @@
 {/*
 
+
+import React, { useState } from 'react';
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  Button,
+  Alert,
+  TextInput,
+  _ScrollView,
+  FlatList,
+  RefreshControl
+} from 'react-native';
+
+function App(): JSX.Element {
+  return (
   //const isDarkMode = useColorScheme() === 'dark';
 <Text style={[styles.bigBlue]} >
 Lorem ipsum dolor{"\n"}
@@ -42,7 +59,70 @@ onPress={() => Alert.alert("Hello " + text, "How are you?",
 />
 
 
+  );
+}
 
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 10,
+  },
+  bigBlue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 50,
+  },
+  red: {
+    color: 'red',
+  },
+  image: {
+    width: "auto",
+    height: 50,
+    resizeMode: 'cover',
+  },
+  background: {
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    fontSize: 50,
+    height: "100%",
+    width: "100%"
+  },
+  textinput: {
+    fontSize: 14,
+    borderWidth: 1,
+    padding: 5,
+    marginHorizontal: 40,
+    marginTop: 50
+  },
+  descriptionText: {
+    fontSize: 25,
+    borderWidth: 1,
+    marginTop: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    padding: 10
+  },
+  text: {
+    fontSize: 25,
+    marginTop: 10,
+    marginRight: 10,
+    marginLeft: 10,
+    padding: 10
+  },
+  smalltext: {
+    fontSize: 15,
+    padding: 10,
+    textAlign: 'center'
+  },
+  button: {
+    width: "auto",
+    textAlign: "center",
+    height: 50,
+  }
+});
+
+
+export default App;
 
 
 */}
