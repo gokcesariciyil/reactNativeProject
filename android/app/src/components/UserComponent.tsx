@@ -33,13 +33,10 @@ const UserComponent = () => {
   return (
     <View>
       {popularShows.map((show) => (
-        <View style={styles.imageBorder} key={show.id} >
-          
+        <View style={styles.imageBorder} key={show.id} >          
             <Image source={{ uri: show.image?.medium }}  style={styles.image} />
             <Text style={styles.title} >{show.name}</Text>
             <Text style={styles.date}>{show.premiered}</Text>
-          
-
         </View>
       ))}
     </View>
@@ -67,7 +64,8 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 0,
     position: "absolute",
-    top:"50%"
+    top:"43%"
+    
   },
   date:{
     fontSize: 20,
@@ -78,7 +76,7 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 0,
     position: "absolute",
-    top:"60.1%"
+    top:"50.3%"
 
   }
 });
