@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, ActivityIndicator, StyleSheet, SectionList } from 'react-native';
+import { View, Image, Text, ActivityIndicator, StyleSheet, SectionList, FlatList, ScrollView, PermissionsAndroid } from 'react-native';
 import { getPopularShows } from '../services/tvmazeService';
 
 const UserComponent = () => {
@@ -29,55 +29,64 @@ const UserComponent = () => {
       </View>
     );
   }
-
   return (
     <View>
-      {popularShows.map((show) => (
-        <View style={styles.imageBorder} key={show.id} >          
-            <Image source={{ uri: show.image?.medium }}  style={styles.image} />
+      <Text style={[styles.text]}>Movies</Text>
+      <ScrollView style={styles.background}>
+        {popularShows.map((show) => (
+          <View style={styles.imageBorder} key={show.id} >
+            <Image source={{ uri: show.image?.medium }} style={styles.image} />
             <Text style={styles.title} >{show.name}</Text>
             <Text style={styles.date}>{show.premiered}</Text>
-        </View>
-      ))}
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 };
-
 const styles = StyleSheet.create({
+  background: {
+    backgroundColor: "black"
+  },
   imageBorder: {
     textAlign: "center",
     alignItems: "center",
     marginVertical: 20,
-    
   },
   image: {
     padding: 20,
     width: 400,
-    height: 550
+    height: 550,
   },
-  title:{
+  title: {
     fontSize: 30,
     color: "black",
     fontFamily: "sans-serif",
-    textAlign:"center",
+    textAlign: "center",
     backgroundColor: "#ffffff66",
     width: "100%",
     padding: 0,
     position: "absolute",
-    top:"43%"
-    
+    top: "43%"
   },
-  date:{
+  text: {
+    fontSize: 35,
+    marginTop: 0,
+    padding: 10,
+    backgroundColor: "black",
+    color: "white",
+    textAlign: "center",
+  },
+  date: {
     fontSize: 20,
     color: "black",
     fontFamily: "sans-serif",
-    textAlign:"center",
+    textAlign: "center",
     backgroundColor: "#ffffff66",
     width: "100%",
     padding: 0,
     position: "absolute",
-    top:"50.3%"
-
+    top: "50.3%"
   }
 });
 

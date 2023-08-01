@@ -93,21 +93,14 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView>
-      <ScrollView>
         {/* {show ? (
             <UserComponent  />
           ) : (
             <Button title="User Component'i Göster" onPress={handleShowUserComponent} />
           )} */}
-        <Text style={[styles.text, styles.title]}>Movies</Text>
+       
         <UserComponent />
-        <FlatList
-          data={data}
-          renderItem={({ item }) => <Text style={[styles.descriptionText, styles.text]}>{item.body}</Text>}
-          keyExtractor={item => item.id.toString()}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={_onRefresh} />}
-        />
-      </ScrollView>
+  
 
 
 
